@@ -1,0 +1,40 @@
+<h1>Ficha de Articulo</h1>
+
+<form *ngIf="category" #categoryForm="ngForm" name="categoryForm" role="form" novalidate autocomplete="off">
+
+    <!--ID-->
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input disabled type="number" [(ngModel)]="category.id" name="id" class="form-control" id="price" #id="ngModel">
+    </div>
+
+    <!--NOMBRE-->
+    <div class="form-group">
+        <label for="name">Nombre Categoria</label>
+        <input type="text" [(ngModel)]="category.name" name="name" class="form-control" id="name" #name="ngModel" required
+            minlength="3" maxlength="100">
+    </div>
+
+    <div *ngIf="(name.dirty && name.errors)">
+        <small class="form-text text-danger"
+         *ngIf="name.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger"
+         *ngIf="name.errors['minlength']">
+            Este campo tiene que tener un longitud minima de 3 caracteres
+        </small>
+    </div>
+
+    <!--IMAGEN-->
+    <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="file" id="image" class="form-control" id="image" (change)="includeImageInCategory($event)">
+        <img id="imagenFicha" *ngIf="category.image" [src]="'data:image/webp;base64,'+category.image">
+    </div>
+
+    <div class="buttonsForm">
+        <button class="btn btn-success" (click)="saveCategory()" [disabled]="categoryForm.invalid" [routerLink]="['/categories']">Guardar</button>
+    </div>
+
+</form>

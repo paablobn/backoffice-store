@@ -1,0 +1,44 @@
+<h1>CATEGORIAS</h1>
+
+<div id="buttonCreateContainer">
+    <button [routerLink]="['/categories','new']" class="btn btn-outline-success"><i id="new"
+            class="fa-solid fa-plus"></i>Nueva Categoria</button>
+</div>
+
+<div class="categories-container">
+    <div *ngFor="let category of categories" class="card" >
+        <img class="card-img" [src]="'data:image/webp;base64,' + category.image">
+        <div class="card-img-overlay">
+            <h3 class="card-title">{{ category.name }}</h3>
+            <div class="card-actions">
+                <a [routerLink]="['/categories', category.id, 'items']">
+                    <button class="btn btn-primary"><i class="fas fa-tshirt"></i></button>
+                </a>
+                <a [routerLink]="['/categories', category.id]">
+                    <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                </a>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete"
+                    (click)="prepareCategoryToDelete(category.id!)"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="askConfirmationDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmacion de Borrado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Desea eliminar el registro seleccionado? Esta operacion no puede deshacerse
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="deleteCategory();">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
