@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="login-form">
+      <h2>Iniciar sesión</h2>
+      <form (ngSubmit)="login()" #loginForm="ngForm" name="loginForm" role="form" novalidate>
+        <div class="form-group">
+          <label for="nick">Usuario</label>
+          <input type="text" [(ngModel)]="user.nick" name="nick" class="form-control" id="nick" #nick="ngModel" required>
+        </div>
+  
+        <div *ngIf="nick.invalid && (nick.dirty || nick.touched)">
+          <small class="form-text text-danger" *ngIf="nick.errors!['required']">
+            Este campo es requerido
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" [(ngModel)]="user.password" name="password" class="form-control" id="password" #password="ngModel" required>
+        </div>
+  
+        <div class="form-group">
+          <p>¿Aún no tienes cuenta?</p>
+          <a id="register-form" aria-current="page" [routerLink]="['register']">Registrate</a>
+        </div>
+  
+        <button type="submit" class="btn-login" [disabled]="loginForm.invalid" [routerLink]="['']" (click)="login()">Iniciar sesión</button>
+      </form>
+    </div>
+  </div>
+  

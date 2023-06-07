@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+  
+  .login-form,
+  .register {
+    width: 300px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  input[type="email"] {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .btn-login,
+  .btn-register {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btn-login:disabled,
+  .btn-register:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
