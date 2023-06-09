@@ -110,3 +110,32 @@ h1 {
   #btnDeleteCategory {
     margin-right: 5px;
   }
+
+  .btn-light {
+    background-color: #fff;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+  }
+  
+  .btn-primary {
+    background-color: #fff;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+  }
+  
+  .btn-light i,
+  .btn-primary i {
+    color: #dc3545;
+  }
+  
+  .btn-light:hover,
+  .btn-primary:hover {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .btn-light:hover i,
+  .btn-primary:hover i {
+    color: #fff;
+  }
+  

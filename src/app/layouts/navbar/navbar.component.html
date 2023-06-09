@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" *ngIf="userIsRegister()">
           <div class="d-flex">
-            <a id="login_name" class="nav-link" aria-current="page">{{user!.nick}}</a>
+            <a id="login_name" class="nav-link" aria-current="page" [routerLink]="['favorites']"><i class="fas fa-user" id="iconUser"></i>{{user!.nick}}</a>
             <a id="sesion_out" class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#askConfirmation">Cerrar Sesión</a>
           </div>
         </li>

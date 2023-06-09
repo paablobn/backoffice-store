@@ -41,6 +41,10 @@
                 <button id="btnEditCategory" class="btn btn-warning" [routerLink]="['/items/reactive/',item.id]"><i id="iconEdit" class="fa-solid fa-pen-to-square"></i>Edit Reactive</button>
                 <button id="btnDeleteCategory" class="btn btn-danger" data-bs-toggle="modal"
                     data-bs-target="#askConfirmationDelete" (click)="prepareItemToDelete(item.id!);"><i class="fa-solid fa-trash"></i></button>
+                    <button *ngIf="userIsRegister() &&  isFavorite(item)" id="btnDeleteFav" class="btn btn-light"
+                    (click)="deleteFavorite(item)"><i class="fas fa-times"></i></button>
+                  <button *ngIf="userIsRegister() && !isFavorite(item)" id="btnNewFav" class="btn btn-primary"
+                    (click)="newFavorite(item)"><i class="fas fa-heart"></i></button>
             </td>
         </tr>
     </tbody>

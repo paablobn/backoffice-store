@@ -8,6 +8,7 @@ import { ItemRectiveFormComponent } from './entities/item/item-rective-form/item
 import { CategoryFormComponent } from './entities/category/category-form/category-form.component';
 import { UserComponent } from './entities/user/user/user.component';
 import { RegistrateComponent } from './entities/user/register/registrate.component';
+import { FavoritesComponent } from './entities/favorites/favorites.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -18,8 +19,8 @@ const routes: Routes = [
   {path: 'categories/:categoryId', component: CategoryFormComponent},
   {path: 'items/reactive/:itemId', component: ItemRectiveFormComponent},
   {path: 'users', component: UserComponent},
-  {path: 'users/register', component: RegistrateComponent}
-
+  {path: 'users/register', component: RegistrateComponent},
+  {path: 'favorites', component: FavoritesComponent}
 ];
 
 @NgModule({

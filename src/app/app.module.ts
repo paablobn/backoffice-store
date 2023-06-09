@@ -19,6 +19,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ItemRectiveFormComponent } from './entities/item/item-rective-form/item-rective-form.component';
 import { UserComponent } from './entities/user/user/user.component';
 import { RegistrateComponent } from './entities/user/register/registrate.component';
+import { RouterModule } from '@angular/router';
+import { FavoritesComponent } from './entities/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { RegistrateComponent } from './entities/user/register/registrate.compone
     ItemRectiveFormComponent,
     UserComponent,
     RegistrateComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { RegistrateComponent } from './entities/user/register/registrate.compone
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    RouterModule
   ],
   providers: [
     {

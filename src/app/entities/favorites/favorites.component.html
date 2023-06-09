@@ -1,0 +1,30 @@
+<h1>Lista de Ítems Favoritos</h1>
+
+<table *ngIf="favorites.length > 0">
+    <thead>
+        <th>Id</th>
+        <th>Imagen</th>
+        <th>Articulo</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of favorites">
+            <td>{{item.id}}</td>
+            <td>
+                <img class="imgItem" [src]="'data:image/webp;base64,' + item.image">
+            </td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}} €</td>
+            <td>
+                <button id="btnDeleteFromFavorites" class="btn btn-danger" (click)="deleteFavorite(item)"><i class="fas fa-times"></i></button>
+                <button id="btnViewItem" class="btn btn-primary" [routerLink]="['/items', item.id]"><i class="fas fa-tshirt"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="favorites.length === 0" class="empty-message">
+    No tienes ítems favoritos.
+</div>
+

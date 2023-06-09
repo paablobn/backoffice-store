@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemService } from '../service/item.service';
 import { Item } from '../model/item.model';
+import { FavoriteService } from '../../favorites/service/favorite.service';
+import { User } from '../../user/user/model/user.model';
+import { UserService } from '../../user/user/service/user.service';
 
 @Component({
   selector: 'app-item-list',
@@ -28,7 +31,11 @@ export class ItemListComponent implements OnInit {
 
   itemIdToDelete?: number;
 
-  constructor(private route: ActivatedRoute, private itemService: ItemService) { }
+  item?: Item;
+
+  user?: User;
+
+  constructor(private route: ActivatedRoute, private itemService: ItemService, private favoriteService: FavoriteService, private userService: UserService) { }
 
 
   ngOnInit(): void {
@@ -39,6 +46,23 @@ export class ItemListComponent implements OnInit {
       this.title = "LISTA ARTICULOS";
     }
     this.getAllItems();
+  }
+
+  public userIsRegister(){
+    this.user = this.userService.user!;
+    return this.user !== undefined;
+  }
+
+  public isFavorite(item: Item): boolean {
+    return this.favoriteService.isFavorite(item);
+  }
+
+  public newFavorite(item: Item): void {
+    this.favoriteService.newFavorite(item);
+  }
+
+  public deleteFavorite(item: Item): void {
+    this.favoriteService.deleteFavorite(item);
   }
 
   public nextPage(): void {
